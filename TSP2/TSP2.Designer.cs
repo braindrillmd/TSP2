@@ -54,6 +54,8 @@
             this.textBoxTime = new System.Windows.Forms.TextBox();
             this.buttonSaveGraph = new System.Windows.Forms.Button();
             this.buttonLoadGraph = new System.Windows.Forms.Button();
+            this.label8 = new System.Windows.Forms.Label();
+            this.textBoxMCEThreadsNumber = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCanvas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -172,7 +174,7 @@
             // buttonMutation
             // 
             this.buttonMutation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonMutation.Location = new System.Drawing.Point(872, 252);
+            this.buttonMutation.Location = new System.Drawing.Point(872, 291);
             this.buttonMutation.Name = "buttonMutation";
             this.buttonMutation.Size = new System.Drawing.Size(124, 23);
             this.buttonMutation.TabIndex = 12;
@@ -183,7 +185,7 @@
             // buttonCrossingOver
             // 
             this.buttonCrossingOver.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCrossingOver.Location = new System.Drawing.Point(872, 282);
+            this.buttonCrossingOver.Location = new System.Drawing.Point(872, 320);
             this.buttonCrossingOver.Name = "buttonCrossingOver";
             this.buttonCrossingOver.Size = new System.Drawing.Size(124, 23);
             this.buttonCrossingOver.TabIndex = 13;
@@ -194,7 +196,7 @@
             // buttonGA
             // 
             this.buttonGA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonGA.Location = new System.Drawing.Point(872, 312);
+            this.buttonGA.Location = new System.Drawing.Point(872, 350);
             this.buttonGA.Name = "buttonGA";
             this.buttonGA.Size = new System.Drawing.Size(124, 23);
             this.buttonGA.TabIndex = 14;
@@ -205,7 +207,7 @@
             // textBoxGAIterations
             // 
             this.textBoxGAIterations.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxGAIterations.Location = new System.Drawing.Point(872, 358);
+            this.textBoxGAIterations.Location = new System.Drawing.Point(872, 396);
             this.textBoxGAIterations.Name = "textBoxGAIterations";
             this.textBoxGAIterations.Size = new System.Drawing.Size(124, 20);
             this.textBoxGAIterations.TabIndex = 15;
@@ -214,7 +216,7 @@
             // textBoxGACapacity
             // 
             this.textBoxGACapacity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxGACapacity.Location = new System.Drawing.Point(872, 401);
+            this.textBoxGACapacity.Location = new System.Drawing.Point(872, 435);
             this.textBoxGACapacity.Name = "textBoxGACapacity";
             this.textBoxGACapacity.Size = new System.Drawing.Size(124, 20);
             this.textBoxGACapacity.TabIndex = 16;
@@ -224,7 +226,7 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(872, 342);
+            this.label4.Location = new System.Drawing.Point(872, 380);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(119, 13);
             this.label4.TabIndex = 17;
@@ -234,7 +236,7 @@
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(872, 385);
+            this.label5.Location = new System.Drawing.Point(872, 419);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(105, 13);
             this.label5.TabIndex = 18;
@@ -243,7 +245,7 @@
             // textBoxGAThreadsNumber
             // 
             this.textBoxGAThreadsNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxGAThreadsNumber.Location = new System.Drawing.Point(872, 440);
+            this.textBoxGAThreadsNumber.Location = new System.Drawing.Point(872, 474);
             this.textBoxGAThreadsNumber.Name = "textBoxGAThreadsNumber";
             this.textBoxGAThreadsNumber.Size = new System.Drawing.Size(124, 20);
             this.textBoxGAThreadsNumber.TabIndex = 19;
@@ -253,7 +255,7 @@
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(872, 424);
+            this.label6.Location = new System.Drawing.Point(872, 458);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(86, 13);
             this.label6.TabIndex = 20;
@@ -262,7 +264,7 @@
             // buttonLoadMap
             // 
             this.buttonLoadMap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonLoadMap.Location = new System.Drawing.Point(872, 466);
+            this.buttonLoadMap.Location = new System.Drawing.Point(872, 500);
             this.buttonLoadMap.Name = "buttonLoadMap";
             this.buttonLoadMap.Size = new System.Drawing.Size(124, 23);
             this.buttonLoadMap.TabIndex = 21;
@@ -272,7 +274,7 @@
             // 
             // buttonEraseGraph
             // 
-            this.buttonEraseGraph.Location = new System.Drawing.Point(872, 534);
+            this.buttonEraseGraph.Location = new System.Drawing.Point(872, 568);
             this.buttonEraseGraph.Name = "buttonEraseGraph";
             this.buttonEraseGraph.Size = new System.Drawing.Size(124, 23);
             this.buttonEraseGraph.TabIndex = 22;
@@ -283,7 +285,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(869, 492);
+            this.label7.Location = new System.Drawing.Point(869, 526);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(43, 13);
             this.label7.TabIndex = 23;
@@ -291,7 +293,7 @@
             // 
             // textBoxTime
             // 
-            this.textBoxTime.Location = new System.Drawing.Point(872, 508);
+            this.textBoxTime.Location = new System.Drawing.Point(872, 542);
             this.textBoxTime.Name = "textBoxTime";
             this.textBoxTime.ReadOnly = true;
             this.textBoxTime.Size = new System.Drawing.Size(124, 20);
@@ -299,7 +301,7 @@
             // 
             // buttonSaveGraph
             // 
-            this.buttonSaveGraph.Location = new System.Drawing.Point(872, 563);
+            this.buttonSaveGraph.Location = new System.Drawing.Point(872, 597);
             this.buttonSaveGraph.Name = "buttonSaveGraph";
             this.buttonSaveGraph.Size = new System.Drawing.Size(124, 23);
             this.buttonSaveGraph.TabIndex = 25;
@@ -309,7 +311,7 @@
             // 
             // buttonLoadGraph
             // 
-            this.buttonLoadGraph.Location = new System.Drawing.Point(872, 593);
+            this.buttonLoadGraph.Location = new System.Drawing.Point(872, 627);
             this.buttonLoadGraph.Name = "buttonLoadGraph";
             this.buttonLoadGraph.Size = new System.Drawing.Size(124, 23);
             this.buttonLoadGraph.TabIndex = 26;
@@ -317,12 +319,31 @@
             this.buttonLoadGraph.UseVisualStyleBackColor = true;
             this.buttonLoadGraph.Click += new System.EventHandler(this.buttonLoadGraph_Click);
             // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(872, 249);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(86, 13);
+            this.label8.TabIndex = 27;
+            this.label8.Text = "Число потоков:";
+            // 
+            // textBoxMCEThreadsNumber
+            // 
+            this.textBoxMCEThreadsNumber.Location = new System.Drawing.Point(872, 265);
+            this.textBoxMCEThreadsNumber.Name = "textBoxMCEThreadsNumber";
+            this.textBoxMCEThreadsNumber.Size = new System.Drawing.Size(124, 20);
+            this.textBoxMCEThreadsNumber.TabIndex = 28;
+            this.textBoxMCEThreadsNumber.TextChanged += new System.EventHandler(this.textBoxMCEThreadsNumber_TextChanged);
+            // 
             // TSP2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.textBoxMCEThreadsNumber);
+            this.Controls.Add(this.label8);
             this.Controls.Add(this.buttonLoadGraph);
             this.Controls.Add(this.buttonSaveGraph);
             this.Controls.Add(this.textBoxTime);
@@ -386,6 +407,8 @@
         private System.Windows.Forms.TextBox textBoxTime;
         private System.Windows.Forms.Button buttonSaveGraph;
         private System.Windows.Forms.Button buttonLoadGraph;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.TextBox textBoxMCEThreadsNumber;
     }
 }
 

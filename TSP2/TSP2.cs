@@ -21,6 +21,7 @@ namespace TSP2
         private long GAIterations;
         private int GACapacity;
         private int GAThreadsNumber;
+        private int MCEThreadNumber;
         private Bitmap map;
 
         public TSP2()
@@ -65,6 +66,7 @@ namespace TSP2
         {
             MCE.IterationsNumber = MCEIterations;
             MCE.Graph = graph;
+            MCE.ThreadsNumber = MCEThreadNumber;
 
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
@@ -225,6 +227,11 @@ namespace TSP2
             {
                 graph = FileAdapter.LoadGraph(dialog.FileName);
             }
+        }
+
+        private void textBoxMCEThreadsNumber_TextChanged(object sender, EventArgs e)
+        {
+            MCEThreadNumber = Convert.ToInt32(textBoxMCEThreadsNumber.Text);
         }
     }
 }

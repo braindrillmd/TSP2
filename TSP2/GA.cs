@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Threading;
+using System.Windows.Forms;
 
 namespace TSP2
 {
@@ -59,6 +60,8 @@ namespace TSP2
 
         private static void _GARoutine(object arg)
         {
+            //MessageBox.Show("I am thread " + arg.ToString() + "!");
+
             Population population = new Population(capacity, graph);
             population.InitializeRandom();
 
