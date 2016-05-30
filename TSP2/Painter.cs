@@ -21,7 +21,7 @@ namespace TSP2
             canvas.Image = bitmap;
         }
 
-        static public void DrawTour(Tour tour, WOGraph graph, PictureBox canvas)
+        static public void DrawTour(Tour tour, WOGraph graph, PictureBox canvas, bool drawLabels = false)
         {
             Bitmap bitmap = new Bitmap(canvas.Image);
             Graphics graphics = Graphics.FromImage(bitmap);
@@ -29,7 +29,7 @@ namespace TSP2
             float arrowCapSize = 4;
             AdjustableArrowCap arrowCap = new AdjustableArrowCap(arrowCapSize, arrowCapSize * 2);
             Pen pen = new Pen(Brushes.Red);
-            Font font = new Font("Arial", 9);
+            
             pen.CustomEndCap = arrowCap;
             pen.Width = 2;
 
@@ -45,10 +45,14 @@ namespace TSP2
                     graph.GetVerticeAt(tour.IndexAt(i)).Coordinates);
             }
 
-            for (int i = 0; i < tour.VerticesNumber; i++)
+            if (drawLabels == true)
             {
-                graphics.DrawString(graph.GetVerticeAt(i).Label, font, Brushes.Black, graph.GetVerticeAt(i).Coordinates.X + 10,
-                    graph.GetVerticeAt(i).Coordinates.Y - 10);
+                Font font = new Font("Arial", 9);
+                for (int i = 0; i < tour.VerticesNumber; i++)
+                {
+                    graphics.DrawString(graph.GetVerticeAt(i).Label, font, Brushes.Black, graph.GetVerticeAt(i).Coordinates.X + 10,
+                        graph.GetVerticeAt(i).Coordinates.Y - 10);
+                }
             }
 
             canvas.Image = bitmap;

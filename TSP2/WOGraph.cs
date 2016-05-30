@@ -44,6 +44,17 @@ namespace TSP2
             _RecomputeEdges();
         }
 
+        public void AddVertice(WOGraphVertice vertice)
+        {
+            List<WOGraphVertice> list = vertices.ToList();
+            list.Add(vertice);
+            vertices = list.ToArray();
+
+            verticesNumber++;
+
+            _RecomputeEdges();
+        }
+
         public void FillRandomData(int maxX, int maxY)
         {
             for(int i = 0; i < verticesNumber; i++)
@@ -94,6 +105,11 @@ namespace TSP2
                         Math.Pow(vertices[i].Coordinates.Y - vertices[j].Coordinates.Y, 2));
                 }
             }
+        }
+
+        public void SetWeightAt(int x, int y, double weight)
+        {
+            edges[x, y] = weight;
         }
     }
 }

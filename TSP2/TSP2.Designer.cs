@@ -49,6 +49,11 @@
             this.textBoxGAThreadsNumber = new System.Windows.Forms.TextBox();
             this.label6 = new System.Windows.Forms.Label();
             this.buttonLoadMap = new System.Windows.Forms.Button();
+            this.buttonEraseGraph = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBoxTime = new System.Windows.Forms.TextBox();
+            this.buttonSaveGraph = new System.Windows.Forms.Button();
+            this.buttonLoadGraph = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCanvas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -66,7 +71,7 @@
             // buttonDrawGraph
             // 
             this.buttonDrawGraph.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonDrawGraph.Location = new System.Drawing.Point(648, 81);
+            this.buttonDrawGraph.Location = new System.Drawing.Point(872, 81);
             this.buttonDrawGraph.Name = "buttonDrawGraph";
             this.buttonDrawGraph.Size = new System.Drawing.Size(124, 23);
             this.buttonDrawGraph.TabIndex = 1;
@@ -78,7 +83,7 @@
             // 
             this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(645, 37);
+            this.label1.Location = new System.Drawing.Point(869, 37);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(83, 13);
             this.label1.TabIndex = 2;
@@ -87,7 +92,7 @@
             // textBoxVerticesNumber
             // 
             this.textBoxVerticesNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxVerticesNumber.Location = new System.Drawing.Point(648, 55);
+            this.textBoxVerticesNumber.Location = new System.Drawing.Point(872, 55);
             this.textBoxVerticesNumber.Name = "textBoxVerticesNumber";
             this.textBoxVerticesNumber.Size = new System.Drawing.Size(124, 20);
             this.textBoxVerticesNumber.TabIndex = 3;
@@ -96,7 +101,7 @@
             // buttonGenerateGraph
             // 
             this.buttonGenerateGraph.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonGenerateGraph.Location = new System.Drawing.Point(648, 11);
+            this.buttonGenerateGraph.Location = new System.Drawing.Point(872, 11);
             this.buttonGenerateGraph.Name = "buttonGenerateGraph";
             this.buttonGenerateGraph.Size = new System.Drawing.Size(124, 23);
             this.buttonGenerateGraph.TabIndex = 4;
@@ -107,7 +112,7 @@
             // buttonRandomTour
             // 
             this.buttonRandomTour.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonRandomTour.Location = new System.Drawing.Point(648, 111);
+            this.buttonRandomTour.Location = new System.Drawing.Point(872, 111);
             this.buttonRandomTour.Name = "buttonRandomTour";
             this.buttonRandomTour.Size = new System.Drawing.Size(124, 23);
             this.buttonRandomTour.TabIndex = 5;
@@ -119,7 +124,7 @@
             // 
             this.label2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(645, 137);
+            this.label2.Location = new System.Drawing.Point(869, 137);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(68, 13);
             this.label2.TabIndex = 6;
@@ -128,7 +133,7 @@
             // textBoxPathLength
             // 
             this.textBoxPathLength.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxPathLength.Location = new System.Drawing.Point(648, 153);
+            this.textBoxPathLength.Location = new System.Drawing.Point(872, 153);
             this.textBoxPathLength.Name = "textBoxPathLength";
             this.textBoxPathLength.ReadOnly = true;
             this.textBoxPathLength.Size = new System.Drawing.Size(124, 20);
@@ -137,7 +142,7 @@
             // buttonMCE
             // 
             this.buttonMCE.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonMCE.Location = new System.Drawing.Point(648, 179);
+            this.buttonMCE.Location = new System.Drawing.Point(872, 179);
             this.buttonMCE.Name = "buttonMCE";
             this.buttonMCE.Size = new System.Drawing.Size(124, 23);
             this.buttonMCE.TabIndex = 8;
@@ -149,7 +154,7 @@
             // 
             this.label3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(648, 209);
+            this.label3.Location = new System.Drawing.Point(872, 209);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(59, 13);
             this.label3.TabIndex = 9;
@@ -158,7 +163,7 @@
             // textBoxIterations
             // 
             this.textBoxIterations.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxIterations.Location = new System.Drawing.Point(648, 226);
+            this.textBoxIterations.Location = new System.Drawing.Point(872, 226);
             this.textBoxIterations.Name = "textBoxIterations";
             this.textBoxIterations.Size = new System.Drawing.Size(124, 20);
             this.textBoxIterations.TabIndex = 10;
@@ -167,7 +172,7 @@
             // buttonMutation
             // 
             this.buttonMutation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonMutation.Location = new System.Drawing.Point(648, 252);
+            this.buttonMutation.Location = new System.Drawing.Point(872, 252);
             this.buttonMutation.Name = "buttonMutation";
             this.buttonMutation.Size = new System.Drawing.Size(124, 23);
             this.buttonMutation.TabIndex = 12;
@@ -178,7 +183,7 @@
             // buttonCrossingOver
             // 
             this.buttonCrossingOver.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonCrossingOver.Location = new System.Drawing.Point(648, 282);
+            this.buttonCrossingOver.Location = new System.Drawing.Point(872, 282);
             this.buttonCrossingOver.Name = "buttonCrossingOver";
             this.buttonCrossingOver.Size = new System.Drawing.Size(124, 23);
             this.buttonCrossingOver.TabIndex = 13;
@@ -189,7 +194,7 @@
             // buttonGA
             // 
             this.buttonGA.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonGA.Location = new System.Drawing.Point(648, 312);
+            this.buttonGA.Location = new System.Drawing.Point(872, 312);
             this.buttonGA.Name = "buttonGA";
             this.buttonGA.Size = new System.Drawing.Size(124, 23);
             this.buttonGA.TabIndex = 14;
@@ -200,7 +205,7 @@
             // textBoxGAIterations
             // 
             this.textBoxGAIterations.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxGAIterations.Location = new System.Drawing.Point(648, 358);
+            this.textBoxGAIterations.Location = new System.Drawing.Point(872, 358);
             this.textBoxGAIterations.Name = "textBoxGAIterations";
             this.textBoxGAIterations.Size = new System.Drawing.Size(124, 20);
             this.textBoxGAIterations.TabIndex = 15;
@@ -209,7 +214,7 @@
             // textBoxGACapacity
             // 
             this.textBoxGACapacity.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxGACapacity.Location = new System.Drawing.Point(648, 401);
+            this.textBoxGACapacity.Location = new System.Drawing.Point(872, 401);
             this.textBoxGACapacity.Name = "textBoxGACapacity";
             this.textBoxGACapacity.Size = new System.Drawing.Size(124, 20);
             this.textBoxGACapacity.TabIndex = 16;
@@ -219,7 +224,7 @@
             // 
             this.label4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(648, 342);
+            this.label4.Location = new System.Drawing.Point(872, 342);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(119, 13);
             this.label4.TabIndex = 17;
@@ -229,7 +234,7 @@
             // 
             this.label5.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(648, 385);
+            this.label5.Location = new System.Drawing.Point(872, 385);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(105, 13);
             this.label5.TabIndex = 18;
@@ -238,7 +243,7 @@
             // textBoxGAThreadsNumber
             // 
             this.textBoxGAThreadsNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.textBoxGAThreadsNumber.Location = new System.Drawing.Point(648, 440);
+            this.textBoxGAThreadsNumber.Location = new System.Drawing.Point(872, 440);
             this.textBoxGAThreadsNumber.Name = "textBoxGAThreadsNumber";
             this.textBoxGAThreadsNumber.Size = new System.Drawing.Size(124, 20);
             this.textBoxGAThreadsNumber.TabIndex = 19;
@@ -248,7 +253,7 @@
             // 
             this.label6.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(648, 424);
+            this.label6.Location = new System.Drawing.Point(872, 424);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(86, 13);
             this.label6.TabIndex = 20;
@@ -257,7 +262,7 @@
             // buttonLoadMap
             // 
             this.buttonLoadMap.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.buttonLoadMap.Location = new System.Drawing.Point(648, 466);
+            this.buttonLoadMap.Location = new System.Drawing.Point(872, 466);
             this.buttonLoadMap.Name = "buttonLoadMap";
             this.buttonLoadMap.Size = new System.Drawing.Size(124, 23);
             this.buttonLoadMap.TabIndex = 21;
@@ -265,12 +270,64 @@
             this.buttonLoadMap.UseVisualStyleBackColor = true;
             this.buttonLoadMap.Click += new System.EventHandler(this.buttonLoadMap_Click);
             // 
+            // buttonEraseGraph
+            // 
+            this.buttonEraseGraph.Location = new System.Drawing.Point(872, 534);
+            this.buttonEraseGraph.Name = "buttonEraseGraph";
+            this.buttonEraseGraph.Size = new System.Drawing.Size(124, 23);
+            this.buttonEraseGraph.TabIndex = 22;
+            this.buttonEraseGraph.Text = "Стереть граф";
+            this.buttonEraseGraph.UseVisualStyleBackColor = true;
+            this.buttonEraseGraph.Click += new System.EventHandler(this.buttonEraseGraph_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(869, 492);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(43, 13);
+            this.label7.TabIndex = 23;
+            this.label7.Text = "Время:";
+            // 
+            // textBoxTime
+            // 
+            this.textBoxTime.Location = new System.Drawing.Point(872, 508);
+            this.textBoxTime.Name = "textBoxTime";
+            this.textBoxTime.ReadOnly = true;
+            this.textBoxTime.Size = new System.Drawing.Size(124, 20);
+            this.textBoxTime.TabIndex = 24;
+            // 
+            // buttonSaveGraph
+            // 
+            this.buttonSaveGraph.Location = new System.Drawing.Point(872, 563);
+            this.buttonSaveGraph.Name = "buttonSaveGraph";
+            this.buttonSaveGraph.Size = new System.Drawing.Size(124, 23);
+            this.buttonSaveGraph.TabIndex = 25;
+            this.buttonSaveGraph.Text = "Сохранить граф";
+            this.buttonSaveGraph.UseVisualStyleBackColor = true;
+            this.buttonSaveGraph.Click += new System.EventHandler(this.buttonSaveGraph_Click);
+            // 
+            // buttonLoadGraph
+            // 
+            this.buttonLoadGraph.Location = new System.Drawing.Point(872, 593);
+            this.buttonLoadGraph.Name = "buttonLoadGraph";
+            this.buttonLoadGraph.Size = new System.Drawing.Size(124, 23);
+            this.buttonLoadGraph.TabIndex = 26;
+            this.buttonLoadGraph.Text = "Загрузить граф";
+            this.buttonLoadGraph.UseVisualStyleBackColor = true;
+            this.buttonLoadGraph.Click += new System.EventHandler(this.buttonLoadGraph_Click);
+            // 
             // TSP2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(784, 561);
+            this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.buttonLoadGraph);
+            this.Controls.Add(this.buttonSaveGraph);
+            this.Controls.Add(this.textBoxTime);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.buttonEraseGraph);
             this.Controls.Add(this.buttonLoadMap);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.textBoxGAThreadsNumber);
@@ -324,6 +381,11 @@
         private System.Windows.Forms.TextBox textBoxGAThreadsNumber;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Button buttonLoadMap;
+        private System.Windows.Forms.Button buttonEraseGraph;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBoxTime;
+        private System.Windows.Forms.Button buttonSaveGraph;
+        private System.Windows.Forms.Button buttonLoadGraph;
     }
 }
 

@@ -7,14 +7,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Diagnostics;
 
 namespace TSP2
 {
     public partial class TSP2 : Form
     {
         private WOGraph graph;
-        private const int CANVAS_WIDTH = 500;
-        private const int CANVAS_HIGHT = 500;
+        private const int CANVAS_WIDTH = 700;
+        private const int CANVAS_HIGHT = 700;
         private int verticesNumber;
         private long MCEIterations;
         private long GAIterations;
@@ -54,7 +55,7 @@ namespace TSP2
         {
             _InitCanvas();
             _DrawMap();
-            Tour tour = new Tour(verticesNumber);
+            Tour tour = new Tour(graph.VerticesNumber);
             tour.FillRandomData();
             textBoxPathLength.Text = graph.GetTourLength(tour).ToString();
             Painter.DrawTour(tour, graph, pictureBoxCanvas);
@@ -64,7 +65,13 @@ namespace TSP2
         {
             MCE.IterationsNumber = MCEIterations;
             MCE.Graph = graph;
+
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
             Tour tour = MCE.Run();
+            stopwatch.Stop();
+            textBoxTime.Text = stopwatch.ElapsedMilliseconds.ToString();
+
             _InitCanvas();
             _DrawMap();
             textBoxPathLength.Text = graph.GetTourLength(tour).ToString();
@@ -141,7 +148,13 @@ namespace TSP2
             GA.Capacity = GACapacity;
             GA.Graph = graph;
             GA.ThreadsNumber = GAThreadsNumber;
+
+            Stopwatch stopwatch = new Stopwatch();
+            stopwatch.Start();
             Tour tour = GA.Run();
+            stopwatch.Stop();
+            textBoxTime.Text = stopwatch.ElapsedMilliseconds.ToString();
+
             _InitCanvas();
             _DrawMap();
             textBoxPathLength.Text = graph.GetTourLength(tour).ToString();
@@ -184,6 +197,34 @@ namespace TSP2
             }
 
             graph.AddVertice(e.X, e.Y);
+
+            textBoxVerticesNumber.Text = graph.VerticesNumber.ToString();
+        }
+
+        private void buttonEraseGraph_Click(object sender, EventArgs e)
+        {
+            graph = null;
+            textBoxVerticesNumber.Text = "0";
+        }
+
+        private void buttonSaveGraph_Click(object sender, EventArgs e)
+        {
+            SaveFileDialog dialog = new SaveFileDialog();
+            dialog.ShowDialog();
+            if (dialog.FileName != "")
+            {
+                FileAdapter.SaveGraph(graph, dialog.FileName);
+            }
+        }
+
+        private void buttonLoadGraph_Click(object sender, EventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.ShowDialog();
+            if(dialog.FileName != "")
+            {
+                graph = FileAdapter.LoadGraph(dialog.FileName);
+            }
         }
     }
 }

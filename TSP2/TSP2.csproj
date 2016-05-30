@@ -46,6 +46,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="FileAdapter.cs" />
     <Compile Include="GA.cs" />
     <Compile Include="MCE.cs" />
     <Compile Include="Population.cs" />
