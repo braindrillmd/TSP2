@@ -37,7 +37,7 @@ namespace TSP2
 
                     for(int j = 0; j < verticesNumber; j++)
                     {
-                        graph.SetWeightAt(i, j, Convert.ToDouble(bufferArray[i]));
+                        graph.SetWeightAt(i, j, Convert.ToDouble(bufferArray[j]));
                     }
                 }
 

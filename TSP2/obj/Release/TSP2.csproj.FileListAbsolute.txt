@@ -1,0 +1,8 @@
+D:\Home\Valery\GitHub\TSP2\TSP2\bin\Release\TSP2.exe.config
+D:\Home\Valery\GitHub\TSP2\TSP2\bin\Release\TSP2.exe
+D:\Home\Valery\GitHub\TSP2\TSP2\bin\Release\TSP2.pdb
+D:\Home\Valery\GitHub\TSP2\TSP2\obj\Release\TSP2.TSP2.resources
+D:\Home\Valery\GitHub\TSP2\TSP2\obj\Release\TSP2.Properties.Resources.resources
+D:\Home\Valery\GitHub\TSP2\TSP2\obj\Release\TSP2.csproj.GenerateResource.Cache
+D:\Home\Valery\GitHub\TSP2\TSP2\obj\Release\TSP2.exe
+D:\Home\Valery\GitHub\TSP2\TSP2\obj\Release\TSP2.pdb

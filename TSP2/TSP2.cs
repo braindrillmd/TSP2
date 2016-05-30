@@ -23,6 +23,8 @@ namespace TSP2
         private int GAThreadsNumber;
         private int MCEThreadNumber;
         private Bitmap map;
+        private bool dragVertice;
+        private int verticeToDrag;
 
         public TSP2()
         {
@@ -31,7 +33,8 @@ namespace TSP2
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            _InitCanvas(); 
+            _InitCanvas();
+            dragVertice = false;
         }
 
         private void buttonDrawGraph_Click(object sender, EventArgs e)
@@ -90,6 +93,18 @@ namespace TSP2
             pictureBoxCanvas.Image = new Bitmap(CANVAS_WIDTH, CANVAS_HIGHT);
         }
 
+        private void _IniCanvasFromMap()
+        {
+            if(map != null)
+            {
+                pictureBoxCanvas.Image = new Bitmap(map, map.Width, map.Height);
+            }
+            else
+            {
+                _InitCanvas();
+            }
+        }
+
         private void _DrawMap()
         {
             if(map != null)
@@ -101,6 +116,7 @@ namespace TSP2
         private async void buttonMutation_Click(object sender, EventArgs e)
         {
             _InitCanvas();
+            _DrawMap();
             Tour tour = new Tour(verticesNumber);
             tour.FillRandomData();
             textBoxPathLength.Text = graph.GetTourLength(tour).ToString();
@@ -109,6 +125,7 @@ namespace TSP2
             await PutTaskDelay(2000);
 
             _InitCanvas();
+            _DrawMap();
             tour.Mutate();
             textBoxPathLength.Text = graph.GetTourLength(tour).ToString();
             Painter.DrawTour(tour, graph, pictureBoxCanvas);
@@ -122,6 +139,7 @@ namespace TSP2
         private async void buttonCrossingOver_Click(object sender, EventArgs e)
         {
             _InitCanvas();
+            _DrawMap();
             Tour tour1 = new Tour(verticesNumber);
             tour1.FillRandomData();
             textBoxPathLength.Text = graph.GetTourLength(tour1).ToString();
@@ -130,6 +148,7 @@ namespace TSP2
             await PutTaskDelay(1500);
 
             _InitCanvas();
+            _DrawMap();
             Tour tour2 = new Tour(verticesNumber);
             tour2.FillRandomData();
             textBoxPathLength.Text = graph.GetTourLength(tour2).ToString();
@@ -138,6 +157,7 @@ namespace TSP2
             await PutTaskDelay(1500);
 
             _InitCanvas();
+            _DrawMap();
             Tour tour = new Tour(verticesNumber);
             tour = tour1.CrossingOver(tour2);
             textBoxPathLength.Text = graph.GetTourLength(tour).ToString();
@@ -191,16 +211,41 @@ namespace TSP2
 
         private void pictureBoxCanvas_MouseClick(object sender, MouseEventArgs e)
         {
-            Painter.DrawPoint(new Point(e.X, e.Y), pictureBoxCanvas);
 
-            if(graph == null)
+            for (int i = 0; graph != null && i < graph.VerticesNumber; i++)
             {
-                graph = new WOGraph(0);
+                WOGraphVertice vertice = graph.GetVerticeAt(i);
+
+                if ((e.X < vertice.Coordinates.X + 5 && e.X > vertice.Coordinates.X - 5) &&
+                    (e.Y < vertice.Coordinates.Y + 5 && e.Y > vertice.Coordinates.Y - 5))
+                {
+                    dragVertice = true;
+                    verticeToDrag = i;
+                    break;
+                }
             }
 
-            graph.AddVertice(e.X, e.Y);
+            if (dragVertice != true)
+            {
+                Painter.DrawPoint(new Point(e.X, e.Y), pictureBoxCanvas);
 
-            textBoxVerticesNumber.Text = graph.VerticesNumber.ToString();
+                if (graph == null)
+                {
+                    graph = new WOGraph(0);
+                }
+
+                graph.AddVertice(e.X, e.Y);
+
+                textBoxVerticesNumber.Text = graph.VerticesNumber.ToString();
+            }
+            else
+            {
+                if (e.Button == MouseButtons.Right)
+                {
+                    dragVertice = false;
+                }
+            }
+
         }
 
         private void buttonEraseGraph_Click(object sender, EventArgs e)
@@ -226,12 +271,38 @@ namespace TSP2
             if(dialog.FileName != "")
             {
                 graph = FileAdapter.LoadGraph(dialog.FileName);
+                textBoxVerticesNumber.Text = graph.VerticesNumber.ToString();
             }
+
+            
         }
 
         private void textBoxMCEThreadsNumber_TextChanged(object sender, EventArgs e)
         {
             MCEThreadNumber = Convert.ToInt32(textBoxMCEThreadsNumber.Text);
+        }
+
+        private void pictureBoxCanvas_MouseMove(object sender, MouseEventArgs e)
+        {
+            if(dragVertice == true)
+            {
+                graph.GetVerticeAt(verticeToDrag).Coordinates = new Point(e.X, e.Y);
+                //_InitCanvas();
+                //_DrawMap();
+                _IniCanvasFromMap();
+                //Painter.DrawWOGraph(graph, pictureBoxCanvas);
+                for(int i = 0; i < graph.VerticesNumber; i++)
+                {
+                    if (i != verticeToDrag)
+                    {
+                        //Painter.DrawPoint(graph.GetVerticeAt(i).Coordinates, pictureBoxCanvas);
+                    }
+                    else
+                    {
+                        Painter.DrawPoint(new Point(e.X, e.Y), pictureBoxCanvas);
+                    }
+                }
+            }
         }
     }
 }

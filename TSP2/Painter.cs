@@ -15,6 +15,7 @@ namespace TSP2
         {
             Bitmap bitmap = new Bitmap(canvas.Image);
             Graphics graphics = Graphics.FromImage(bitmap);
+            //canvas.Image.Dispose();
 
             graphics.FillEllipse(Brushes.Red, point.X - 5, point.Y - 5, 10, 10);
 

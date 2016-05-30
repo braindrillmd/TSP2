@@ -69,6 +69,7 @@
             this.pictureBoxCanvas.TabIndex = 0;
             this.pictureBoxCanvas.TabStop = false;
             this.pictureBoxCanvas.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pictureBoxCanvas_MouseClick);
+            this.pictureBoxCanvas.MouseMove += new System.Windows.Forms.MouseEventHandler(this.pictureBoxCanvas_MouseMove);
             // 
             // buttonDrawGraph
             // 
@@ -274,6 +275,7 @@
             // 
             // buttonEraseGraph
             // 
+            this.buttonEraseGraph.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonEraseGraph.Location = new System.Drawing.Point(872, 568);
             this.buttonEraseGraph.Name = "buttonEraseGraph";
             this.buttonEraseGraph.Size = new System.Drawing.Size(124, 23);
@@ -284,6 +286,7 @@
             // 
             // label7
             // 
+            this.label7.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(869, 526);
             this.label7.Name = "label7";
@@ -293,6 +296,7 @@
             // 
             // textBoxTime
             // 
+            this.textBoxTime.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxTime.Location = new System.Drawing.Point(872, 542);
             this.textBoxTime.Name = "textBoxTime";
             this.textBoxTime.ReadOnly = true;
@@ -301,6 +305,7 @@
             // 
             // buttonSaveGraph
             // 
+            this.buttonSaveGraph.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonSaveGraph.Location = new System.Drawing.Point(872, 597);
             this.buttonSaveGraph.Name = "buttonSaveGraph";
             this.buttonSaveGraph.Size = new System.Drawing.Size(124, 23);
@@ -311,6 +316,7 @@
             // 
             // buttonLoadGraph
             // 
+            this.buttonLoadGraph.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.buttonLoadGraph.Location = new System.Drawing.Point(872, 627);
             this.buttonLoadGraph.Name = "buttonLoadGraph";
             this.buttonLoadGraph.Size = new System.Drawing.Size(124, 23);
@@ -321,6 +327,7 @@
             // 
             // label8
             // 
+            this.label8.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(872, 249);
             this.label8.Name = "label8";
@@ -330,6 +337,7 @@
             // 
             // textBoxMCEThreadsNumber
             // 
+            this.textBoxMCEThreadsNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxMCEThreadsNumber.Location = new System.Drawing.Point(872, 265);
             this.textBoxMCEThreadsNumber.Name = "textBoxMCEThreadsNumber";
             this.textBoxMCEThreadsNumber.Size = new System.Drawing.Size(124, 20);
