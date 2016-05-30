@@ -1,0 +1,9 @@
+D:\Home\Valery\Documents\Visual Studio Projects\TSP2\TSP2\bin\Debug\TSP2.exe.config
+D:\Home\Valery\Documents\Visual Studio Projects\TSP2\TSP2\bin\Debug\TSP2.exe
+D:\Home\Valery\Documents\Visual Studio Projects\TSP2\TSP2\bin\Debug\TSP2.pdb
+D:\Home\Valery\Documents\Visual Studio Projects\TSP2\TSP2\obj\Debug\TSP2.csprojResolveAssemblyReference.cache
+D:\Home\Valery\Documents\Visual Studio Projects\TSP2\TSP2\obj\Debug\TSP2.Properties.Resources.resources
+D:\Home\Valery\Documents\Visual Studio Projects\TSP2\TSP2\obj\Debug\TSP2.csproj.GenerateResource.Cache
+D:\Home\Valery\Documents\Visual Studio Projects\TSP2\TSP2\obj\Debug\TSP2.exe
+D:\Home\Valery\Documents\Visual Studio Projects\TSP2\TSP2\obj\Debug\TSP2.pdb
+D:\Home\Valery\Documents\Visual Studio Projects\TSP2\TSP2\obj\Debug\TSP2.TSP2.resources
