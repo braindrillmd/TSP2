@@ -34,5 +34,10 @@ namespace TSP2
         {
             return _local.Next(maxValue);
         }
+
+        public int Next(int minValue, int maxValue)
+        {
+            return _local.Next(minValue, maxValue);
+        }
     }
 }

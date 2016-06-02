@@ -25,6 +25,12 @@ namespace TSP2
         private Bitmap map;
         private bool dragVertice;
         private int verticeToDrag;
+        private Tour[] experimentSequence;
+        private bool multipleExperiments;
+        private int experimentsNumber;
+        string region;
+        bool drawRegion;
+
 
         public TSP2()
         {
@@ -35,6 +41,8 @@ namespace TSP2
         {
             _InitCanvas();
             dragVertice = false;
+            multipleExperiments = false;
+            drawRegion = false;
         }
 
         private void buttonDrawGraph_Click(object sender, EventArgs e)
@@ -42,12 +50,36 @@ namespace TSP2
             _InitCanvas();
             _DrawMap();
             Painter.DrawWOGraph(graph, pictureBoxCanvas);
+
+            if(drawRegion == true)
+            {
+                string[] temp = region.Split(',');
+                Painter.DrawRegion(Convert.ToInt32(temp[0]),
+                    Convert.ToInt32(temp[1]),
+                    Convert.ToInt32(temp[2]) - 5,
+                    Convert.ToInt32(temp[3]) + 5,
+                    pictureBoxCanvas);
+            }
         }
 
         private void buttonGenerateGraph_Click(object sender, EventArgs e)
         {
             graph = new WOGraph(verticesNumber);
-            graph.FillRandomData(400, 400);
+            if (drawRegion == false)
+            {
+                
+                graph.FillRandomData(CANVAS_WIDTH, CANVAS_HIGHT);
+            }
+            else
+            {
+                string[] temp = region.Split(',');
+                graph.FillRandomDataInRegion(CANVAS_WIDTH, CANVAS_HIGHT,
+                    Convert.ToInt32(temp[0]),
+                    Convert.ToInt32(temp[1]),
+                    Convert.ToInt32(temp[2]),
+                    Convert.ToInt32(temp[3]));
+                
+            }
         }
 
         private void textBoxVerticesNumber_TextChanged(object sender, EventArgs e)
@@ -63,6 +95,16 @@ namespace TSP2
             tour.FillRandomData();
             textBoxPathLength.Text = graph.GetTourLength(tour).ToString();
             Painter.DrawTour(tour, graph, pictureBoxCanvas);
+
+            if (drawRegion == true)
+            {
+                string[] temp = region.Split(',');
+                Painter.DrawRegion(Convert.ToInt32(temp[0]),
+                    Convert.ToInt32(temp[1]),
+                    Convert.ToInt32(temp[2]) - 5,
+                    Convert.ToInt32(temp[3]) + 5,
+                    pictureBoxCanvas);
+            }
         }
 
         private void buttonMCE_Click(object sender, EventArgs e)
@@ -73,14 +115,45 @@ namespace TSP2
 
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
-            Tour tour = MCE.Run();
+            Tour tour = new Tour(graph.VerticesNumber);
+            double summaryWeight = 0;
+            if (multipleExperiments == false)
+            {
+                 tour = MCE.Run();
+            }
+            else
+            {
+                for(int i = 0; i < experimentsNumber; i++)
+                {
+                    tour = MCE.Run();
+                    summaryWeight += graph.GetTourLength(tour);
+                }
+            }
+            
             stopwatch.Stop();
-            textBoxTime.Text = stopwatch.ElapsedMilliseconds.ToString();
-
             _InitCanvas();
             _DrawMap();
-            textBoxPathLength.Text = graph.GetTourLength(tour).ToString();
+            if (multipleExperiments == false) {
+                textBoxTime.Text = stopwatch.ElapsedMilliseconds.ToString();
+                textBoxPathLength.Text = graph.GetTourLength(tour).ToString();
+            }
+            else
+            {
+                textBoxPathLength.Text = (summaryWeight / experimentsNumber).ToString();
+                textBoxTime.Text = (stopwatch.ElapsedMilliseconds / experimentsNumber).ToString();
+            }
+
             Painter.DrawTour(tour, graph, pictureBoxCanvas);
+
+            if (drawRegion == true)
+            {
+                string[] temp = region.Split(',');
+                Painter.DrawRegion(Convert.ToInt32(temp[0]),
+                    Convert.ToInt32(temp[1]),
+                    Convert.ToInt32(temp[2]) - 5,
+                    Convert.ToInt32(temp[3]) + 5,
+                    pictureBoxCanvas);
+            }
         }
 
         private void textBoxIterations_TextChanged(object sender, EventArgs e)
@@ -173,14 +246,48 @@ namespace TSP2
 
             Stopwatch stopwatch = new Stopwatch();
             stopwatch.Start();
-            Tour tour = GA.Run();
+            Tour tour = new Tour(graph.VerticesNumber);
+            double summaryWeight = 0;
+            if (multipleExperiments == false)
+            {
+                tour = GA.Run();
+            }
+            else
+            {
+                for (int i = 0; i < experimentsNumber; i++)
+                {
+                    tour = GA.Run();
+                    summaryWeight += graph.GetTourLength(tour);
+                }
+            }
+
             stopwatch.Stop();
-            textBoxTime.Text = stopwatch.ElapsedMilliseconds.ToString();
+            _InitCanvas();
+            _DrawMap();
+            if (multipleExperiments == false)
+            {
+                textBoxTime.Text = stopwatch.ElapsedMilliseconds.ToString();
+                textBoxPathLength.Text = graph.GetTourLength(tour).ToString();
+            }
+            else
+            {
+                textBoxPathLength.Text = (summaryWeight / experimentsNumber).ToString();
+                textBoxTime.Text = (stopwatch.ElapsedMilliseconds / experimentsNumber).ToString();
+            }
 
             _InitCanvas();
             _DrawMap();
-            textBoxPathLength.Text = graph.GetTourLength(tour).ToString();
             Painter.DrawTour(tour, graph, pictureBoxCanvas);
+
+            if (drawRegion == true)
+            {
+                string[] temp = region.Split(',');
+                Painter.DrawRegion(Convert.ToInt32(temp[0]),
+                    Convert.ToInt32(temp[1]),
+                    Convert.ToInt32(temp[2]) - 5,
+                    Convert.ToInt32(temp[3]) + 5,
+                    pictureBoxCanvas);
+            }
         }
 
         private void textBoxGACapacity_TextChanged(object sender, EventArgs e)
@@ -303,6 +410,40 @@ namespace TSP2
                     }
                 }
             }
+        }
+
+        private void textBoxExperimentsNumber_TextChanged(object sender, EventArgs e)
+        {
+            experimentsNumber = Convert.ToInt32(textBoxExperimentsNumber.Text);
+            experimentSequence = new Tour[experimentsNumber];
+        }
+
+        private void radioButtonSingleExperiment_CheckedChanged(object sender, EventArgs e)
+        {
+            if (radioButtonMultipleExperiment.Checked)
+            {
+                multipleExperiments = false;
+                textBoxExperimentsNumber.Enabled = false;
+            }
+        }
+
+        private void radioButtonMultipleExperiment_CheckedChanged(object sender, EventArgs e)
+        {
+            if(radioButtonMultipleExperiment.Checked == true)
+            {
+                multipleExperiments = true;
+                textBoxExperimentsNumber.Enabled = true;
+            }
+        }
+
+        private void textBoxRegion_TextChanged(object sender, EventArgs e)
+        {
+            region = textBoxRegion.Text;
+        }
+
+        private void checkBoxRegion_CheckedChanged(object sender, EventArgs e)
+        {
+            drawRegion = checkBoxRegion.Checked;
         }
     }
 }

@@ -9,8 +9,19 @@ using System.Drawing.Drawing2D;
 
 namespace TSP2
 {
+    
     static public class Painter
     {
+        static public void DrawRegion(int x0, int y0, int r1, int r2, PictureBox canvas)
+        {
+            Bitmap bitmap = new Bitmap(canvas.Image);
+            Graphics graphics = Graphics.FromImage(bitmap);
+
+            graphics.DrawEllipse(Pens.DarkGreen, x0 - r1, y0 - r1, 2 * r1, 2 * r1);
+            graphics.DrawEllipse(Pens.DarkGreen, x0 - r2, y0 - r2, 2 * r2, 2 * r2);
+
+            canvas.Image = bitmap;
+        }
         static public void DrawPoint(Point point, PictureBox canvas)
         {
             Bitmap bitmap = new Bitmap(canvas.Image);

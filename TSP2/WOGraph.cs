@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace TSP2
 {
@@ -65,6 +66,34 @@ namespace TSP2
             for(int i = 0; i < verticesNumber; i++)
             {
                 for(int j = 0; j < verticesNumber; j++)
+                {
+                    edges[i, j] = Math.Sqrt(Math.Pow(vertices[i].Coordinates.X - vertices[j].Coordinates.X, 2) +
+                        Math.Pow(vertices[i].Coordinates.Y - vertices[j].Coordinates.Y, 2));
+                }
+            }
+        }
+
+        public void FillRandomDataInRegion(int maxX, int maxY, int x0, int y0, int r1, int r2)
+        {
+            for (int i = 0; i < verticesNumber; i++)
+            {
+                int x = random.Next(maxX);
+                int y = random.Next(maxY);
+
+                while ( !(y <= Math.Sqrt(r2 * r2 - (x - x0) * (x - x0)) + y0 &&
+                    y >= -Math.Sqrt(r2 * r2 - (x - x0) * (x - x0)) + y0 &&
+                    (y >= Math.Sqrt(r1*r1 - (x - x0 ) * (x - x0) ) + y0 ||
+                    y <= -Math.Sqrt(r1 * r1 - (x - x0) * (x - x0)) + y0)))   {
+                    x = random.Next(maxX);
+                    y = random.Next(maxY);
+
+                }
+                vertices[i] = new WOGraphVertice(i.ToString(), x, y);
+            }
+
+            for (int i = 0; i < verticesNumber; i++)
+            {
+                for (int j = 0; j < verticesNumber; j++)
                 {
                     edges[i, j] = Math.Sqrt(Math.Pow(vertices[i].Coordinates.X - vertices[j].Coordinates.X, 2) +
                         Math.Pow(vertices[i].Coordinates.Y - vertices[j].Coordinates.Y, 2));

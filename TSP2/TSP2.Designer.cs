@@ -56,6 +56,11 @@
             this.buttonLoadGraph = new System.Windows.Forms.Button();
             this.label8 = new System.Windows.Forms.Label();
             this.textBoxMCEThreadsNumber = new System.Windows.Forms.TextBox();
+            this.radioButtonSingleExperiment = new System.Windows.Forms.RadioButton();
+            this.radioButtonMultipleExperiment = new System.Windows.Forms.RadioButton();
+            this.textBoxExperimentsNumber = new System.Windows.Forms.TextBox();
+            this.checkBoxRegion = new System.Windows.Forms.CheckBox();
+            this.textBoxRegion = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCanvas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -344,12 +349,75 @@
             this.textBoxMCEThreadsNumber.TabIndex = 28;
             this.textBoxMCEThreadsNumber.TextChanged += new System.EventHandler(this.textBoxMCEThreadsNumber_TextChanged);
             // 
+            // radioButtonSingleExperiment
+            // 
+            this.radioButtonSingleExperiment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.radioButtonSingleExperiment.AutoSize = true;
+            this.radioButtonSingleExperiment.Location = new System.Drawing.Point(881, 660);
+            this.radioButtonSingleExperiment.Name = "radioButtonSingleExperiment";
+            this.radioButtonSingleExperiment.Size = new System.Drawing.Size(82, 17);
+            this.radioButtonSingleExperiment.TabIndex = 29;
+            this.radioButtonSingleExperiment.TabStop = true;
+            this.radioButtonSingleExperiment.Text = "Одиночный";
+            this.radioButtonSingleExperiment.UseVisualStyleBackColor = true;
+            this.radioButtonSingleExperiment.CheckedChanged += new System.EventHandler(this.radioButtonSingleExperiment_CheckedChanged);
+            // 
+            // radioButtonMultipleExperiment
+            // 
+            this.radioButtonMultipleExperiment.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.radioButtonMultipleExperiment.AutoSize = true;
+            this.radioButtonMultipleExperiment.Location = new System.Drawing.Point(881, 683);
+            this.radioButtonMultipleExperiment.Name = "radioButtonMultipleExperiment";
+            this.radioButtonMultipleExperiment.Size = new System.Drawing.Size(109, 17);
+            this.radioButtonMultipleExperiment.TabIndex = 30;
+            this.radioButtonMultipleExperiment.TabStop = true;
+            this.radioButtonMultipleExperiment.Text = "Множественный";
+            this.radioButtonMultipleExperiment.UseVisualStyleBackColor = true;
+            this.radioButtonMultipleExperiment.CheckedChanged += new System.EventHandler(this.radioButtonMultipleExperiment_CheckedChanged);
+            // 
+            // textBoxExperimentsNumber
+            // 
+            this.textBoxExperimentsNumber.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxExperimentsNumber.Enabled = false;
+            this.textBoxExperimentsNumber.Location = new System.Drawing.Point(875, 706);
+            this.textBoxExperimentsNumber.Name = "textBoxExperimentsNumber";
+            this.textBoxExperimentsNumber.Size = new System.Drawing.Size(116, 20);
+            this.textBoxExperimentsNumber.TabIndex = 31;
+            this.textBoxExperimentsNumber.TextChanged += new System.EventHandler(this.textBoxExperimentsNumber_TextChanged);
+            // 
+            // checkBoxRegion
+            // 
+            this.checkBoxRegion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBoxRegion.AutoSize = true;
+            this.checkBoxRegion.Location = new System.Drawing.Point(745, 683);
+            this.checkBoxRegion.Name = "checkBoxRegion";
+            this.checkBoxRegion.Size = new System.Drawing.Size(69, 17);
+            this.checkBoxRegion.TabIndex = 32;
+            this.checkBoxRegion.Text = "Область";
+            this.checkBoxRegion.UseVisualStyleBackColor = true;
+            this.checkBoxRegion.CheckedChanged += new System.EventHandler(this.checkBoxRegion_CheckedChanged);
+            // 
+            // textBoxRegion
+            // 
+            this.textBoxRegion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxRegion.Location = new System.Drawing.Point(745, 706);
+            this.textBoxRegion.Name = "textBoxRegion";
+            this.textBoxRegion.Size = new System.Drawing.Size(124, 20);
+            this.textBoxRegion.TabIndex = 33;
+            this.textBoxRegion.Text = "x0, y0, R1, R2";
+            this.textBoxRegion.TextChanged += new System.EventHandler(this.textBoxRegion_TextChanged);
+            // 
             // TSP2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.textBoxRegion);
+            this.Controls.Add(this.checkBoxRegion);
+            this.Controls.Add(this.textBoxExperimentsNumber);
+            this.Controls.Add(this.radioButtonMultipleExperiment);
+            this.Controls.Add(this.radioButtonSingleExperiment);
             this.Controls.Add(this.textBoxMCEThreadsNumber);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.buttonLoadGraph);
@@ -417,6 +485,11 @@
         private System.Windows.Forms.Button buttonLoadGraph;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox textBoxMCEThreadsNumber;
+        private System.Windows.Forms.RadioButton radioButtonSingleExperiment;
+        private System.Windows.Forms.RadioButton radioButtonMultipleExperiment;
+        private System.Windows.Forms.TextBox textBoxExperimentsNumber;
+        private System.Windows.Forms.CheckBox checkBoxRegion;
+        private System.Windows.Forms.TextBox textBoxRegion;
     }
 }
 
