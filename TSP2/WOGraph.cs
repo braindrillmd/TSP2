@@ -122,7 +122,7 @@ namespace TSP2
                     oldT = t;
                     
                 }
-                MessageBox.Show(t.ToString());
+                //MessageBox.Show(t.ToString());
                 x = Painter.BezierPointAt(nodes, t).X;
                 y = Painter.BezierPointAt(nodes, t).Y;
                 vertices[i] = new WOGraphVertice((i+1).ToString(), x, y);
