@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Drawing;
 
 namespace TSP2
 {
@@ -99,6 +100,59 @@ namespace TSP2
                         Math.Pow(vertices[i].Coordinates.Y - vertices[j].Coordinates.Y, 2));
                 }
             }
+        }
+
+        public void FillRandomDataOnBezier(int maxX, int maxY, Point[] nodes, int resolution = 1000)
+        {
+            int x = Painter.BezierPointAt(nodes, 0).X;
+            int y = Painter.BezierPointAt(nodes, 0).Y;
+            vertices[0] = new WOGraphVertice("0", x, y);
+
+            for (int i = 1; i < verticesNumber-1; i++)
+            {
+                double t = 0;
+                double oldT = 0;
+                while (t == 0 && oldT == t)
+                {
+                    while (oldT == t)
+                    {
+                        t = (double)random.Next((int)Math.Ceiling((double)(i - 1) / (verticesNumber - 2) * resolution),
+                            (int)Math.Floor((double)(i) / (verticesNumber - 2) * resolution)) / resolution;
+                    }
+                    oldT = t;
+                    
+                }
+                MessageBox.Show(t.ToString());
+                x = Painter.BezierPointAt(nodes, t).X;
+                y = Painter.BezierPointAt(nodes, t).Y;
+                vertices[i] = new WOGraphVertice((i+1).ToString(), x, y);
+            }
+            x = Painter.BezierPointAt(nodes, 1).X;
+            y = Painter.BezierPointAt(nodes, 1).Y;
+            vertices[verticesNumber-1] = new WOGraphVertice(verticesNumber.ToString(), x, y);
+
+            for (int i = 0; i < verticesNumber; i++)
+            {
+                for (int j = 0; j < verticesNumber; j++)
+                {
+                    edges[i, j] = Math.Sqrt(Math.Pow(vertices[i].Coordinates.X - vertices[j].Coordinates.X, 2) +
+                        Math.Pow(vertices[i].Coordinates.Y - vertices[j].Coordinates.Y, 2));
+                }
+            }
+
+            edges[0, verticesNumber - 1] = edges[verticesNumber - 1, 0] = 0;
+        }
+
+        public double GetBezierLength()
+        {
+            double length = 0;
+
+            for (int i = 0; i < verticesNumber - 1; i++)
+            {
+                length += edges[i, i + 1];
+            }
+
+            return length;
         }
 
         public double GetEdgeWeightAt(int x, int y)

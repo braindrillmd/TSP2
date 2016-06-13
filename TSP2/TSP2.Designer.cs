@@ -61,6 +61,10 @@
             this.textBoxExperimentsNumber = new System.Windows.Forms.TextBox();
             this.checkBoxRegion = new System.Windows.Forms.CheckBox();
             this.textBoxRegion = new System.Windows.Forms.TextBox();
+            this.textBoxBezier = new System.Windows.Forms.TextBox();
+            this.checkBoxBezier = new System.Windows.Forms.CheckBox();
+            this.textBoxBezierLength = new System.Windows.Forms.TextBox();
+            this.label9 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxCanvas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -407,12 +411,54 @@
             this.textBoxRegion.Text = "x0, y0, R1, R2";
             this.textBoxRegion.TextChanged += new System.EventHandler(this.textBoxRegion_TextChanged);
             // 
+            // textBoxBezier
+            // 
+            this.textBoxBezier.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.textBoxBezier.Location = new System.Drawing.Point(361, 706);
+            this.textBoxBezier.Name = "textBoxBezier";
+            this.textBoxBezier.Size = new System.Drawing.Size(378, 20);
+            this.textBoxBezier.TabIndex = 34;
+            this.textBoxBezier.TextChanged += new System.EventHandler(this.textBoxBezier_TextChanged);
+            // 
+            // checkBoxBezier
+            // 
+            this.checkBoxBezier.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.checkBoxBezier.AutoSize = true;
+            this.checkBoxBezier.Location = new System.Drawing.Point(361, 687);
+            this.checkBoxBezier.Name = "checkBoxBezier";
+            this.checkBoxBezier.Size = new System.Drawing.Size(164, 17);
+            this.checkBoxBezier.TabIndex = 35;
+            this.checkBoxBezier.Text = "Кривая безье 3-го порядка";
+            this.checkBoxBezier.UseVisualStyleBackColor = true;
+            this.checkBoxBezier.CheckedChanged += new System.EventHandler(this.checkBoxBezier_CheckedChanged);
+            // 
+            // textBoxBezierLength
+            // 
+            this.textBoxBezierLength.Location = new System.Drawing.Point(639, 683);
+            this.textBoxBezierLength.Name = "textBoxBezierLength";
+            this.textBoxBezierLength.ReadOnly = true;
+            this.textBoxBezierLength.Size = new System.Drawing.Size(100, 20);
+            this.textBoxBezierLength.TabIndex = 36;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(543, 687);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(90, 13);
+            this.label9.TabIndex = 37;
+            this.label9.Text = "Длина ломаной:";
+            // 
             // TSP2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1008, 729);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.textBoxBezierLength);
+            this.Controls.Add(this.checkBoxBezier);
+            this.Controls.Add(this.textBoxBezier);
             this.Controls.Add(this.textBoxRegion);
             this.Controls.Add(this.checkBoxRegion);
             this.Controls.Add(this.textBoxExperimentsNumber);
@@ -490,6 +536,10 @@
         private System.Windows.Forms.TextBox textBoxExperimentsNumber;
         private System.Windows.Forms.CheckBox checkBoxRegion;
         private System.Windows.Forms.TextBox textBoxRegion;
+        private System.Windows.Forms.TextBox textBoxBezier;
+        private System.Windows.Forms.CheckBox checkBoxBezier;
+        private System.Windows.Forms.TextBox textBoxBezierLength;
+        private System.Windows.Forms.Label label9;
     }
 }
 

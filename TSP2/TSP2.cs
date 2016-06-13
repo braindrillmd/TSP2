@@ -28,8 +28,10 @@ namespace TSP2
         private Tour[] experimentSequence;
         private bool multipleExperiments;
         private int experimentsNumber;
-        string region;
-        bool drawRegion;
+        private string region;
+        private bool drawRegion;
+        private Point[] bezierCurve;
+        private bool drawBezier;
 
 
         public TSP2()
@@ -43,6 +45,8 @@ namespace TSP2
             dragVertice = false;
             multipleExperiments = false;
             drawRegion = false;
+            drawBezier = false;
+            bezierCurve = new Point[4];
         }
 
         private void buttonDrawGraph_Click(object sender, EventArgs e)
@@ -60,17 +64,16 @@ namespace TSP2
                     Convert.ToInt32(temp[3]) + 5,
                     pictureBoxCanvas);
             }
+            if(drawBezier == true)
+            {
+                Painter.DrawBezier(bezierCurve, pictureBoxCanvas);
+            }
         }
 
         private void buttonGenerateGraph_Click(object sender, EventArgs e)
         {
             graph = new WOGraph(verticesNumber);
-            if (drawRegion == false)
-            {
-                
-                graph.FillRandomData(CANVAS_WIDTH, CANVAS_HIGHT);
-            }
-            else
+            if (drawRegion == true)
             {
                 string[] temp = region.Split(',');
                 graph.FillRandomDataInRegion(CANVAS_WIDTH, CANVAS_HIGHT,
@@ -79,6 +82,17 @@ namespace TSP2
                     Convert.ToInt32(temp[2]),
                     Convert.ToInt32(temp[3]));
                 
+            }
+
+            if(drawBezier == true)
+            {
+                graph.FillRandomDataOnBezier(CANVAS_WIDTH, CANVAS_HIGHT, bezierCurve);
+                Painter.DrawBezier(bezierCurve, pictureBoxCanvas);
+                textBoxBezierLength.Text = graph.GetBezierLength().ToString();
+            }
+            if (drawBezier == false && drawRegion == false)
+            {
+                graph.FillRandomData(CANVAS_WIDTH, CANVAS_HIGHT);
             }
         }
 
@@ -444,6 +458,26 @@ namespace TSP2
         private void checkBoxRegion_CheckedChanged(object sender, EventArgs e)
         {
             drawRegion = checkBoxRegion.Checked;
+        }
+
+        private void checkBoxBezier_CheckedChanged(object sender, EventArgs e)
+        {
+            drawBezier = checkBoxBezier.Checked;
+        }
+
+        private void textBoxBezier_TextChanged(object sender, EventArgs e)
+        {
+            string nodes;
+            string[] nodesArray = new string[4];
+
+            nodes = textBoxBezier.Text;
+            nodesArray = nodes.Split(';');
+
+            for (int i = 0; i < 4; i++)
+            {
+                bezierCurve[i].X = Convert.ToInt32(nodesArray[i].Split(',')[0]);
+                bezierCurve[i].Y = Convert.ToInt32(nodesArray[i].Split(',')[1]);
+            }
         }
     }
 }

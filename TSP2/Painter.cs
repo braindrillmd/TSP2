@@ -12,6 +12,50 @@ namespace TSP2
     
     static public class Painter
     {
+        static public Point BezierPointAt(Point[] nodes, double where)
+        {
+            Point point = new Point();
+
+            double t = where;
+
+            int x0 = nodes[0].X;
+            int x1 = nodes[1].X;
+            int x2 = nodes[2].X;
+            int x3 = nodes[3].X;
+            int y0 = nodes[0].Y;
+            int y1 = nodes[1].Y;
+            int y2 = nodes[2].Y;
+            int y3 = nodes[3].Y;
+
+            point.X = (int)(x0 * (-t * t * t + 3 * t * t - 3 * t + 1) +
+                x1 * (3 * t * t * t + -6 * t * t + 3 * t) +
+                x2 * (-3 * t * t * t + 3 * t * t) +
+                x3 * t * t * t);
+
+            point.Y = (int)(y0 * (-t * t * t + 3 * t * t - 3 * t + 1) +
+                y1 * (3 * t * t * t + -6 * t * t + 3 * t) +
+                y2 * (-3 * t * t * t + 3 * t * t) +
+                y3 * t * t * t);
+
+            return point;
+        }
+
+        static public void DrawBezier(Point[] nodes, PictureBox canvas, int parameter = 1000)
+        {
+            Bitmap bitmap = new Bitmap(canvas.Image);
+            Graphics graphics = Graphics.FromImage(bitmap);
+
+            for (int i = 0; i < parameter; i++)
+            {
+                double t = (double)i / parameter;
+
+                graphics.DrawEllipse(Pens.DarkGreen, BezierPointAt(nodes, t).X, BezierPointAt(nodes, t).Y, 1, 1);
+
+            }
+
+            canvas.Image = bitmap;
+        }
+
         static public void DrawRegion(int x0, int y0, int r1, int r2, PictureBox canvas)
         {
             Bitmap bitmap = new Bitmap(canvas.Image);
