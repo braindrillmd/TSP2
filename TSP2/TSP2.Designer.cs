@@ -434,6 +434,7 @@
             // 
             // textBoxBezierLength
             // 
+            this.textBoxBezierLength.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.textBoxBezierLength.Location = new System.Drawing.Point(639, 683);
             this.textBoxBezierLength.Name = "textBoxBezierLength";
             this.textBoxBezierLength.ReadOnly = true;
@@ -442,6 +443,7 @@
             // 
             // label9
             // 
+            this.label9.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(543, 687);
             this.label9.Name = "label9";
